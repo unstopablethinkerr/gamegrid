@@ -105,37 +105,35 @@ button:active {
 
 
 
+
 .gamebg {
+  position: relative;
   width: 100%;
   height: 100vh; /* Full viewport height */
-  background: linear-gradient(135deg, #4CAF50, #2196F3);
-  background-size: 400% 400%;
-  animation: gradientShift 10s ease infinite;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+  overflow: hidden;
 }
 
-/* Animation for gradient background */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* Particle styling */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: moveParticles 10s linear infinite;
+  opacity: 0.8;
 }
 
-/* Responsive design tweaks */
-@media (max-width: 768px) {
-  .gamebg {
-    background: linear-gradient(135deg, #FF5722, #FFC107);
+/* Particle animation */
+@keyframes moveParticles {
+  from {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
   }
-}
-
-@media (max-width: 480px) {
-  .gamebg {
-    background: linear-gradient(135deg, #673AB7, #3F51B5);
+  to {
+    transform: translateY(-100vh) translateX(30vw);
+    opacity: 0;
   }
 }
 
@@ -194,6 +192,28 @@ function shareGame(name, url) {
     alert('Web Share API is not supported in your browser.');
   }
 }
+
+
+
+// Select the game background element
+const gameBg = document.querySelector('.gamebg');
+
+// Create particles dynamically
+for (let i = 0; i < 100; i++) {
+  const particle = document.createElement('div');
+  particle.className = 'particle';
+  
+  // Randomize position and animation duration
+  particle.style.left = Math.random() * 100 + 'vw';
+  particle.style.top = Math.random() * 100 + 'vh';
+  particle.style.animationDuration = 5 + Math.random() * 5 + 's';
+  particle.style.animationDelay = Math.random() * 5 + 's';
+
+  // Append particles to the game background
+  gameBg.appendChild(particle);
+}
+
+
   </script>
 
 </body>
