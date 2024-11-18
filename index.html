@@ -106,17 +106,59 @@ button:active {
   transform: scale(0.95);
 }
 
+
+
+
+.gamebg {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  background: linear-gradient(135deg, #4CAF50, #2196F3);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+
+/* Animation for gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive design tweaks */
+@media (max-width: 768px) {
+  .gamebg {
+    background: linear-gradient(135deg, #FF5722, #FFC107);
+  }
+}
+
+@media (max-width: 480px) {
+  .gamebg {
+    background: linear-gradient(135deg, #673AB7, #3F51B5);
+  }
+}
+
+
+
   </style>
 </head>
 <body>
 
-  <h1>My Mini Games</h1>
-
+  <h1>Mini Games</h1>
+<div class="gamebg">
   <p>Explore fun and interactive games developed using HTML, CSS, and JavaScript.</p>
 <button onclick="shareGame('${names[i]}', '${urls[i]}')">Share</button>
   <div class="grid-container" id="grid-container">
     <!-- Grid items will be dynamically added here -->
   </div>
+</div>
+
+
 
   <script>
     // Game details arrays
