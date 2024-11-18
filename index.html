@@ -1,69 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Default for mobile */
-    gap: 10px;
-    background-color: #2196F3;
-    padding: 10px;
-  }
-  .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 16px;
-    text-align: center;
-  }
-  .grid-item img {
-    max-width: 100%;
-    height: auto;
-  }
-  /* Desktop view */
-  @media (min-width: 768px) {
-    .grid-container {
-      grid-template-columns: repeat(4, 1fr);
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Games Showcase</title>
+  <style>
+    /* Reset and Base Styling */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f3f4f6;
+      color: #333;
     }
-  }
-</style>
+
+    h1 {
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(45deg, #4CAF50, #2196F3);
+      padding: 20px;
+      margin: 0;
+    }
+
+    p {
+      text-align: center;
+      margin: 15px 0;
+      font-size: 1.1rem;
+    }
+
+    /* Grid Container */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Default for mobile */
+      gap: 15px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Grid Items */
+    .grid-item {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .grid-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .grid-item p {
+      margin: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .grid-item a {
+      text-decoration: none;
+      color: #2196F3;
+      transition: color 0.2s;
+    }
+
+    .grid-item a:hover {
+      color: #4CAF50;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 600px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 992px) {
+      .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
 
-<h1>Dynamic Grid Layout</h1>
+  <h1>My Mini Games</h1>
 
-<p>The grid layout below is dynamically populated based on JavaScript arrays.</p>
+  <p>Explore fun and interactive games developed using HTML, CSS, and JavaScript.</p>
 
-<div class="grid-container" id="grid-container">
-  <!-- Items will be dynamically added here -->
-</div>
+  <div class="grid-container" id="grid-container">
+    <!-- Grid items will be dynamically added here -->
+  </div>
 
-<script>
-  // Lists holding names, URLs, and image sources
-  const names = ["Color Challenge", "Memory Match" ];
-  const urls = ["https://unstopablethinkerr.github.io/color-quiz-challenge/", "https://unstopablethinkerr.github.io/memory-match-game/"];
-  const images = [
-    "img1.jpg",
-    "img2.png"
-  ];
+  <script>
+    // Game details arrays
+    const names = ["Color Challenge", "Memory Match"];
+    const urls = [
+      "https://unstopablethinkerr.github.io/color-quiz-challenge/",
+      "https://unstopablethinkerr.github.io/memory-match-game/"
+    ];
+    const images = [
+      "img1.jpg",
+      "img2.png"
+    ];
 
-  // Reference to the grid container
-  const gridContainer = document.getElementById("grid-container");
+    // Populate the grid dynamically
+    const gridContainer = document.getElementById("grid-container");
 
-  // Populate the grid dynamically
-  for (let i = 0; i < names.length; i++) {
-    const gridItem = document.createElement("div");
-    gridItem.className = "grid-item";
+    for (let i = 0; i < names.length; i++) {
+      const gridItem = document.createElement("div");
+      gridItem.className = "grid-item";
 
-    gridItem.innerHTML = `
-      <img src="${images[i]}" alt="${names[i]}">
-      <p><a href="${urls[i]}">${names[i]}</a></p>
-    `;
+      gridItem.innerHTML = `
+        <img src="${images[i]}" alt="${names[i]}">
+        <p><a href="${urls[i]}" target="_blank">${names[i]}</a></p>
+      `;
 
-    gridContainer.appendChild(gridItem);
-  }
-</script>
+      gridContainer.appendChild(gridItem);
+    }
+  </script>
 
 </body>
 </html>
