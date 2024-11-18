@@ -84,6 +84,28 @@
         grid-template-columns: repeat(4, 1fr);
       }
     }
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
   </style>
 </head>
 <body>
@@ -91,9 +113,8 @@
   <h1>My Mini Games</h1>
 
   <p>Explore fun and interactive games developed using HTML, CSS, and JavaScript.</p>
-
-  <div class="grid-container" id="grid-container">
 <button onclick="shareGame('${names[i]}', '${urls[i]}')">Share</button>
+  <div class="grid-container" id="grid-container">
     <!-- Grid items will be dynamically added here -->
   </div>
 
@@ -128,8 +149,8 @@ function shareGame(name, url) {
   if (navigator.share) {
     navigator.share({
       title: name,
-      text: `Check out this game: ${name}`,
-      url: url,
+      text: `🏏Check out this game : https://unstopablethinkerr.github.io/gamegrid/ `
+      
     }).then(() => {
       console.log('Thanks for sharing!');
     }).catch((err) => {
