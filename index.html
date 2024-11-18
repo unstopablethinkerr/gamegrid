@@ -93,6 +93,7 @@
   <p>Explore fun and interactive games developed using HTML, CSS, and JavaScript.</p>
 
   <div class="grid-container" id="grid-container">
+<button onclick="shareGame('${names[i]}', '${urls[i]}')">Share</button>
     <!-- Grid items will be dynamically added here -->
   </div>
 
@@ -122,6 +123,22 @@
 
       gridContainer.appendChild(gridItem);
     }
+
+function shareGame(name, url) {
+  if (navigator.share) {
+    navigator.share({
+      title: name,
+      text: `Check out this game: ${name}`,
+      url: url,
+    }).then(() => {
+      console.log('Thanks for sharing!');
+    }).catch((err) => {
+      console.error('Error sharing:', err);
+    });
+  } else {
+    alert('Web Share API is not supported in your browser.');
+  }
+}
   </script>
 
 </body>
