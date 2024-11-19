@@ -1,36 +1,36 @@
-// Game details arrays
-const names = ["Color Challenge", "Memory Match"];
-const urls = [
-  "https://unstopablethinkerr.github.io/color-quiz-challenge/",
-  "https://unstopablethinkerr.github.io/memory-match-game/"
-];
-const images = [
-  "img1.jpg",
-  "img2.png"
-];
 
-// Populate the grid dynamically
-const gridContainer = document.getElementById("grid-container");
+    // Game details arrays
+    const names = ["Color Challenge", "Memory Match"];
+    const urls = [
+      "https://unstopablethinkerr.github.io/color-quiz-challenge/",
+      "https://unstopablethinkerr.github.io/memory-match-game/"
+    ];
+    const images = [
+      "img1.jpg",
+      "img2.png"
+    ];
 
-for (let i = 0; i < names.length; i++) {
-  const gridItem = document.createElement("div");
-  gridItem.className = "grid-item";
+    // Populate the grid dynamically
+    const gridContainer = document.getElementById("grid-container");
 
-  gridItem.innerHTML = `
-    <img src="${images[i]}" alt="${names[i]}" onerror="this.src='placeholder.jpg';">
-    <p><a href="${urls[i]}" target="_blank">${names[i]}</a></p>
-  `;
+    for (let i = 0; i < names.length; i++) {
+      const gridItem = document.createElement("div");
+      gridItem.className = "grid-item";
 
-  gridContainer.appendChild(gridItem);
-}
+      gridItem.innerHTML = 
+        <img src="${images[i]}" alt="${names[i]}">
+        <p><a href="${urls[i]}" target="_blank">${names[i]}</a></p>
+      ;
 
-// Common share function
-function sharePage() {
+      gridContainer.appendChild(gridItem);
+    }
+
+function shareGame() {
   if (navigator.share) {
     navigator.share({
-      title: "Mini Games Showcase",
-      text: `🏏Check out this game : https://unstopablethinkerr.github.io/gamegrid/`,
-      url: "https://unstopablethinkerr.github.io/gamegrid/"
+      title: name,
+      text: 🏏Check out this game : https://unstopablethinkerr.github.io/gamegrid/ 
+      
     }).then(() => {
       console.log('Thanks for sharing!');
     }).catch((err) => {
@@ -41,6 +41,8 @@ function sharePage() {
   }
 }
 
+
+
 // Select the game background element
 const gameBg = document.querySelector('.gamebg');
 
@@ -48,7 +50,7 @@ const gameBg = document.querySelector('.gamebg');
 for (let i = 0; i < 100; i++) {
   const particle = document.createElement('div');
   particle.className = 'particle';
-
+  
   // Randomize position and animation duration
   particle.style.left = Math.random() * 100 + 'vw';
   particle.style.top = Math.random() * 100 + 'vh';
