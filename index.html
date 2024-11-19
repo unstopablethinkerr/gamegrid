@@ -141,7 +141,7 @@ button:active {
 <body>
   <h1>Mini Games</h1>
 <div class="gamebg">
-<button onclick="shareGame()">Share</button>
+<button onclick="shareGame('${names[i]}', '${urls[i]}')">Share</button>
   <div class="grid-container" id="grid-container">
     <!-- Grid items will be dynamically added here -->
   </div>
@@ -177,12 +177,12 @@ button:active {
       gridContainer.appendChild(gridItem);
     }
 
-function shareGame() {
+function shareGame(name, url) {
   if (navigator.share) {
     navigator.share({
-      title: name,
-      text: 🏏Check out this game : https://unstopablethinkerr.github.io/gamegrid/ 
       
+      text: `🏏Check out this game 
+https://unstopablethinkerr.github.io/gamegrid/ `
     }).then(() => {
       console.log('Thanks for sharing!');
     }).catch((err) => {
@@ -192,7 +192,6 @@ function shareGame() {
     alert('Web Share API is not supported in your browser.');
   }
 }
-
 
 
 // Select the game background element
