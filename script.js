@@ -1,36 +1,36 @@
- <script>
-    // Game details arrays
-    const names = ["Color Challenge", "Memory Match"];
-    const urls = [
-      "https://unstopablethinkerr.github.io/color-quiz-challenge/",
-      "https://unstopablethinkerr.github.io/memory-match-game/"
-    ];
-    const images = [
-      "img1.jpg",
-      "img2.png"
-    ];
+// Game details arrays
+const names = ["Color Challenge", "Memory Match"];
+const urls = [
+  "https://unstopablethinkerr.github.io/color-quiz-challenge/",
+  "https://unstopablethinkerr.github.io/memory-match-game/"
+];
+const images = [
+  "img1.jpg",
+  "img2.png"
+];
 
-    // Populate the grid dynamically
-    const gridContainer = document.getElementById("grid-container");
+// Populate the grid dynamically
+const gridContainer = document.getElementById("grid-container");
 
-    for (let i = 0; i < names.length; i++) {
-      const gridItem = document.createElement("div");
-      gridItem.className = "grid-item";
+for (let i = 0; i < names.length; i++) {
+  const gridItem = document.createElement("div");
+  gridItem.className = "grid-item";
 
-      gridItem.innerHTML = `
-        <img src="${images[i]}" alt="${names[i]}">
-        <p><a href="${urls[i]}" target="_blank">${names[i]}</a></p>
-      `;
+  gridItem.innerHTML = `
+    <img src="${images[i]}" alt="${names[i]}" onerror="this.src='placeholder.jpg';">
+    <p><a href="${urls[i]}" target="_blank">${names[i]}</a></p>
+  `;
 
-      gridContainer.appendChild(gridItem);
-    }
+  gridContainer.appendChild(gridItem);
+}
 
-function shareGame() {
+// Common share function
+function sharePage() {
   if (navigator.share) {
     navigator.share({
-      title: name,
-      text: `🏏Check out this game : https://unstopablethinkerr.github.io/gamegrid/ `
-      
+      title: "Mini Games Showcase",
+      text: `🏏Check out this game : https://unstopablethinkerr.github.io/gamegrid/`,
+      url: "https://unstopablethinkerr.github.io/gamegrid/"
     }).then(() => {
       console.log('Thanks for sharing!');
     }).catch((err) => {
@@ -41,8 +41,6 @@ function shareGame() {
   }
 }
 
-
-
 // Select the game background element
 const gameBg = document.querySelector('.gamebg');
 
@@ -50,7 +48,7 @@ const gameBg = document.querySelector('.gamebg');
 for (let i = 0; i < 100; i++) {
   const particle = document.createElement('div');
   particle.className = 'particle';
-  
+
   // Randomize position and animation duration
   particle.style.left = Math.random() * 100 + 'vw';
   particle.style.top = Math.random() * 100 + 'vh';
@@ -60,6 +58,3 @@ for (let i = 0; i < 100; i++) {
   // Append particles to the game background
   gameBg.appendChild(particle);
 }
-
-
-  </script>
