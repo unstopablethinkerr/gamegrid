@@ -3,8 +3,10 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mini Games Showcase</title>
-<!--  <link rel="stylesheet" href="style.css"> -->
-<style>      /* Reset and Base Styling */
+
+<style>    
+  /* Reset and Base Styling */
+
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -159,23 +161,23 @@ button:active {
     ];
     const images = [
       "img1.jpg",
-      "img2.png"
-    ];
+      "img2.png" ];
 
-    // Populate the grid dynamically
-    const gridContainer = document.getElementById("grid-container");
+   // Populate the grid dynamically
+const gridContainer = document.getElementById("grid-container");
 
-    for (let i = 0; i < names.length; i++) {
-      const gridItem = document.createElement("div");
-      gridItem.className = "grid-item";
+for (let i = 0; i < names.length; i++) {
+  const gridItem = document.createElement("div");
+  gridItem.className = "grid-item";
 
-      gridItem.innerHTML = 
-        <img src="${images[i]}" alt="${names[i]}">
-        <p><a href="${urls[i]}" target="_blank">${names[i]}</a></p>
-      ;
+  // Properly wrap the innerHTML in quotes
+  gridItem.innerHTML = `
+    <img src="${images[i]}" alt="${names[i]}">
+    <p><a href="${urls[i]}" target="_blank">${names[i]}</a></p>
+  `;
 
-      gridContainer.appendChild(gridItem);
-    }
+  gridContainer.appendChild(gridItem);
+}
 
 function shareGame(name, url) {
   if (navigator.share) {
