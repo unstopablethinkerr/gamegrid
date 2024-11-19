@@ -25,7 +25,7 @@
       gridContainer.appendChild(gridItem);
     }
 
-function shareGame(name, url) {
+function shareGame() {
   if (navigator.share) {
     navigator.share({
       title: name,
